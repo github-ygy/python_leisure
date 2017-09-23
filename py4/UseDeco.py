@@ -22,15 +22,19 @@ import time
 
 
 ##python 实现装饰者模式
-def calTime(func):
-    def decoFunc(*args,**kwargs):
-        startTime = time.time()
-        func(*args,**kwargs)
-        endTime = time.time()
-        print(" func takes time = %s" %(endTime - startTime))
-    return  decoFunc
+def calTime(extra):
+    print(extra)
+    def outerFunc(func):
+        def decoFunc(*args,**kwargs):
+            startTime = time.time()
+            res = func(*args,**kwargs)
+            endTime = time.time()
+            print(" func takes time = %s" %(endTime - startTime))
+            return res
+        return  decoFunc
+    return outerFunc
 
-@calTime
+@calTime(extra = "test")
 def test(msg):
     time.sleep(3)
     print(" test is end " + msg)
