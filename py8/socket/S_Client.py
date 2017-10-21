@@ -8,7 +8,7 @@ import  socket
 #建立服务端连接
 
 sc = socket.socket()
-sc.connect(("localhost",8888))
+sc.connect(("localhost",9999))
 
 #小写变大写服务
 while True:
