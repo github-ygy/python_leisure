@@ -15,8 +15,8 @@ def getName(name):
 
 #全局变量
 def getMsg():
-    global msg
-    msg = " local "
+    # global msg
+    # msg = " local "
     print(" msg : " ,msg)
 
 getMsg()
